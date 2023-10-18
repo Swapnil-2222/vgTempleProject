@@ -1,0 +1,345 @@
+<div>
+  <h2 id="page-heading" data-cy="ActivityHeading">
+    <span jhiTranslate="templeProjectApp.activity.home.title">__jhiTransformTranslate__('templeProjectApp.activity.home.title')</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="templeProjectApp.activity.home.refreshListLabel"
+          >__jhiTransformTranslate__('templeProjectApp.activity.home.refreshListLabel')</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-activity"
+        [routerLink]="['/activity/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="templeProjectApp.activity.home.createLabel"
+          >__jhiTransformTranslate__('templeProjectApp.activity.home.createLabel')</span
+        >
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="activities?.length === 0">
+    <span jhiTranslate="templeProjectApp.activity.home.notFound">__jhiTransformTranslate__('templeProjectApp.activity.home.notFound')</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="activities && activities.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="date">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.date">__jhiTransformTranslate__('templeProjectApp.activity.date')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="organizationName">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.organizationName"
+                >__jhiTransformTranslate__('templeProjectApp.activity.organizationName')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="location">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.location">__jhiTransformTranslate__('templeProjectApp.activity.location')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activityName">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.activityName"
+                >__jhiTransformTranslate__('templeProjectApp.activity.activityName')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.description"
+                >__jhiTransformTranslate__('templeProjectApp.activity.description')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="noOfParticipants">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.noOfParticipants"
+                >__jhiTransformTranslate__('templeProjectApp.activity.noOfParticipants')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="time">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.time">__jhiTransformTranslate__('templeProjectApp.activity.time')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mobileNo">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.mobileNo">__jhiTransformTranslate__('templeProjectApp.activity.mobileNo')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emailId">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.emailId">__jhiTransformTranslate__('templeProjectApp.activity.emailId')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="contactPerson">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.contactPerson"
+                >__jhiTransformTranslate__('templeProjectApp.activity.contactPerson')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="comments">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.comments">__jhiTransformTranslate__('templeProjectApp.activity.comments')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="profilePhotoType">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.profilePhotoType"
+                >__jhiTransformTranslate__('templeProjectApp.activity.profilePhotoType')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="signatureImageType">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.signatureImageType"
+                >__jhiTransformTranslate__('templeProjectApp.activity.signatureImageType')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.status">__jhiTransformTranslate__('templeProjectApp.activity.status')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.lastModified"
+                >__jhiTransformTranslate__('templeProjectApp.activity.lastModified')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.lastModifiedBy"
+                >__jhiTransformTranslate__('templeProjectApp.activity.lastModifiedBy')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField1"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField1')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField2"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField2')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField3"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField3')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField4"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField4')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField5"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField5')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField6"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField6')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField7">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField7"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField7')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField8">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField8"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField8')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField9">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField9"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField9')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField10">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField10"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField10')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField11">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField11"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField11')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField12">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.activity.freeField12"
+                >__jhiTransformTranslate__('templeProjectApp.activity.freeField12')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let activity of activities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/activity', activity.id, 'view']">{{ activity.id }}</a>
+          </td>
+          <td>{{ activity.date | formatMediumDatetime }}</td>
+          <td>{{ activity.organizationName }}</td>
+          <td>{{ activity.location }}</td>
+          <td>{{ activity.activityName }}</td>
+          <td>{{ activity.description }}</td>
+          <td>{{ activity.noOfParticipants }}</td>
+          <td>{{ activity.time }}</td>
+          <td>{{ activity.mobileNo }}</td>
+          <td>{{ activity.emailId }}</td>
+          <td>{{ activity.contactPerson }}</td>
+          <td>{{ activity.comments }}</td>
+          <td>{{ activity.profilePhotoType }}</td>
+          <td>{{ activity.signatureImageType }}</td>
+          <td>{{ activity.status }}</td>
+          <td>{{ activity.lastModified | formatMediumDatetime }}</td>
+          <td>{{ activity.lastModifiedBy }}</td>
+          <td>{{ activity.freeField1 }}</td>
+          <td>{{ activity.freeField2 }}</td>
+          <td>{{ activity.freeField3 }}</td>
+          <td>{{ activity.freeField4 }}</td>
+          <td>{{ activity.freeField5 }}</td>
+          <td>{{ activity.freeField6 }}</td>
+          <td>{{ activity.freeField7 | formatMediumDatetime }}</td>
+          <td>{{ activity.freeField8 | formatMediumDatetime }}</td>
+          <td>{{ activity.freeField9 }}</td>
+          <td>{{ activity.freeField10 }}</td>
+          <td>{{ activity.freeField11 }}</td>
+          <td>{{ activity.freeField12 }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/activity', activity.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">__jhiTransformTranslate__('entity.action.view')</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/activity', activity.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">__jhiTransformTranslate__('entity.action.edit')</span>
+              </button>
+
+              <button type="submit" (click)="delete(activity)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete"
+                  >__jhiTransformTranslate__('entity.action.delete')</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="activities && activities.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+{
+  "templeProjectApp": {
+    "delegate": {
+      "home": {
+        "title": "Delegates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Delegate",
+        "createOrEditLabel": "Create or edit a Delegate",
+        "notFound": "No Delegates found"
+      },
+      "created": "A new Delegate is created with identifier {{ param }}",
+      "updated": "A Delegate is updated with identifier {{ param }}",
+      "deleted": "A Delegate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Delegate {{ id }}?"
+      },
+      "detail": {
+        "title": "Delegate"
+      },
+      "id": "ID",
+      "title": "Title",
+      "fullName": "Full Name",
+      "gender": "Gender",
+      "nationality": "Nationality",
+      "countryOfResidence": "Country Of Residence",
+      "dateOfBirth": "Date Of Birth",
+      "citizenship": "Citizenship",
+      "mobileNo": "Mobile No",
+      "emailId": "Email Id",
+      "emergencyContactName": "Emergency Contact Name",
+      "emergencyContactRelationship": "Emergency Contact Relationship",
+      "emergencyContactNo": "Emergency Contact No",
+      "countryCodeOne": "Country Code One",
+      "countryCodeTwo": "Country Code Two",
+      "nationalityOne": "Nationality One",
+      "countryOfBirth": "Country Of Birth",
+      "cityOfResidence": "City Of Residence",
+      "stateOfResidence": "State Of Residence",
+      "districtOfResidence": "District Of Residence",
+      "departureDate": "Departure Date",
+      "departurePlace": "Departure Place",
+      "arrivalDate": "Arrival Date",
+      "arrivalPlace": "Arrival Place",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "isTaxReceipt": "Is Tax Receipt",
+      "profilePhotoContentType": "Profile Photo Content Type",
+      "passportImageContentType": "Passport Image Content Type",
+      "conferenceName": "Conference Name",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "freeField7": "Free Field 7",
+      "freeField8": "Free Field 8",
+      "freeField9": "Free Field 9",
+      "freeField10": "Free Field 10"
+    }
+  }
+}

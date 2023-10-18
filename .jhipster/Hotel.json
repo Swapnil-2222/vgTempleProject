@@ -1,0 +1,86 @@
+{
+  "applications": "*",
+  "changelogDate": "20231018185806",
+  "dto": "mapstruct",
+  "entityTableName": "hotel",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rent",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "emailId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactPerson",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "freeField7",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "freeField8",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "freeField9",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "freeField10",
+      "fieldType": "Boolean"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Hotel",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

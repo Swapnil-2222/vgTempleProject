@@ -1,0 +1,231 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-hotel-heading" data-cy="HotelCreateUpdateHeading" jhiTranslate="templeProjectApp.hotel.home.createOrEditLabel">
+        __jhiTransformTranslate__('templeProjectApp.hotel.home.createOrEditLabel')
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.date" for="field_date">Date</label>
+          <div class="d-flex">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="datetime-local"
+              class="form-control"
+              name="date"
+              formControlName="date"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.location" for="field_location">Location</label>
+          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.rent" for="field_rent">Rent</label>
+          <input type="number" class="form-control" name="rent" id="field_rent" data-cy="rent" formControlName="rent" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.emailId" for="field_emailId">Email Id</label>
+          <input type="text" class="form-control" name="emailId" id="field_emailId" data-cy="emailId" formControlName="emailId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.contactPerson" for="field_contactPerson">Contact Person</label>
+          <input
+            type="text"
+            class="form-control"
+            name="contactPerson"
+            id="field_contactPerson"
+            data-cy="contactPerson"
+            formControlName="contactPerson"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.lastModified" for="field_lastModified">Last Modified</label>
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.lastModifiedBy" for="field_lastModifiedBy">Last Modified By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.freeField1" for="field_freeField1">Free Field 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.freeField2" for="field_freeField2">Free Field 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.freeField5" for="field_freeField5">Free Field 5</label>
+          <input
+            type="number"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.freeField6" for="field_freeField6">Free Field 6</label>
+          <input
+            type="number"
+            class="form-control"
+            name="freeField6"
+            id="field_freeField6"
+            data-cy="freeField6"
+            formControlName="freeField6"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.freeField7" for="field_freeField7">Free Field 7</label>
+          <div class="d-flex">
+            <input
+              id="field_freeField7"
+              data-cy="freeField7"
+              type="datetime-local"
+              class="form-control"
+              name="freeField7"
+              formControlName="freeField7"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.freeField8" for="field_freeField8">Free Field 8</label>
+          <div class="d-flex">
+            <input
+              id="field_freeField8"
+              data-cy="freeField8"
+              type="datetime-local"
+              class="form-control"
+              name="freeField8"
+              formControlName="freeField8"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.freeField9" for="field_freeField9">Free Field 9</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="freeField9"
+            id="field_freeField9"
+            data-cy="freeField9"
+            formControlName="freeField9"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.hotel.freeField10" for="field_freeField10">Free Field 10</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="freeField10"
+            id="field_freeField10"
+            data-cy="freeField10"
+            formControlName="freeField10"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel"
+            >__jhiTransformTranslate__('entity.action.cancel')</span
+          >
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save"
+            >__jhiTransformTranslate__('entity.action.save')</span
+          >
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

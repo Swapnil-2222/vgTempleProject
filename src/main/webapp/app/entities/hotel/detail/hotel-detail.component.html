@@ -1,0 +1,132 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="hotel">
+      <h2 data-cy="hotelDetailsHeading">
+        <span jhiTranslate="templeProjectApp.hotel.detail.title">__jhiTransformTranslate__('templeProjectApp.hotel.detail.title')</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span></dt>
+        <dd>
+          <span>{{ hotel.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.hotel.date">__jhiTransformTranslate__('templeProjectApp.hotel.date')</span></dt>
+        <dd>
+          <span>{{ hotel.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.hotel.name">__jhiTransformTranslate__('templeProjectApp.hotel.name')</span></dt>
+        <dd>
+          <span>{{ hotel.name }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.description">__jhiTransformTranslate__('templeProjectApp.hotel.description')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.hotel.location">__jhiTransformTranslate__('templeProjectApp.hotel.location')</span></dt>
+        <dd>
+          <span>{{ hotel.location }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.hotel.rent">__jhiTransformTranslate__('templeProjectApp.hotel.rent')</span></dt>
+        <dd>
+          <span>{{ hotel.rent }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.hotel.emailId">__jhiTransformTranslate__('templeProjectApp.hotel.emailId')</span></dt>
+        <dd>
+          <span>{{ hotel.emailId }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.contactPerson">__jhiTransformTranslate__('templeProjectApp.hotel.contactPerson')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.contactPerson }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.hotel.status">__jhiTransformTranslate__('templeProjectApp.hotel.status')</span></dt>
+        <dd>
+          <span>{{ hotel.status }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.lastModified">__jhiTransformTranslate__('templeProjectApp.hotel.lastModified')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.lastModifiedBy"
+            >__jhiTransformTranslate__('templeProjectApp.hotel.lastModifiedBy')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ hotel.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.freeField1">__jhiTransformTranslate__('templeProjectApp.hotel.freeField1')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.freeField2">__jhiTransformTranslate__('templeProjectApp.hotel.freeField2')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.freeField5">__jhiTransformTranslate__('templeProjectApp.hotel.freeField5')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.freeField5 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.freeField6">__jhiTransformTranslate__('templeProjectApp.hotel.freeField6')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.freeField6 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.freeField7">__jhiTransformTranslate__('templeProjectApp.hotel.freeField7')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.freeField7 | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.freeField8">__jhiTransformTranslate__('templeProjectApp.hotel.freeField8')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.freeField8 | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.freeField9">__jhiTransformTranslate__('templeProjectApp.hotel.freeField9')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.freeField9 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.hotel.freeField10">__jhiTransformTranslate__('templeProjectApp.hotel.freeField10')</span>
+        </dt>
+        <dd>
+          <span>{{ hotel.freeField10 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"
+          >__jhiTransformTranslate__('entity.action.back')</span
+        >
+      </button>
+
+      <button type="button" [routerLink]="['/hotel', hotel.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"
+          >__jhiTransformTranslate__('entity.action.edit')</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

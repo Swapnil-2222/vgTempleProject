@@ -1,0 +1,455 @@
+<div>
+  <h2 id="page-heading" data-cy="DelegateHeading">
+    <span jhiTranslate="templeProjectApp.delegate.home.title">__jhiTransformTranslate__('templeProjectApp.delegate.home.title')</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="templeProjectApp.delegate.home.refreshListLabel"
+          >__jhiTransformTranslate__('templeProjectApp.delegate.home.refreshListLabel')</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-delegate"
+        [routerLink]="['/delegate/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="templeProjectApp.delegate.home.createLabel"
+          >__jhiTransformTranslate__('templeProjectApp.delegate.home.createLabel')</span
+        >
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="delegates?.length === 0">
+    <span jhiTranslate="templeProjectApp.delegate.home.notFound">__jhiTransformTranslate__('templeProjectApp.delegate.home.notFound')</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="delegates && delegates.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="title">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.title">__jhiTransformTranslate__('templeProjectApp.delegate.title')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fullName">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.fullName">__jhiTransformTranslate__('templeProjectApp.delegate.fullName')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="gender">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.gender">__jhiTransformTranslate__('templeProjectApp.delegate.gender')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nationality">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.nationality"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.nationality')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="countryOfResidence">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.countryOfResidence"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.countryOfResidence')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dateOfBirth">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.dateOfBirth"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.dateOfBirth')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="citizenship">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.citizenship"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.citizenship')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mobileNo">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.mobileNo">__jhiTransformTranslate__('templeProjectApp.delegate.mobileNo')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emailId">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.emailId">__jhiTransformTranslate__('templeProjectApp.delegate.emailId')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emergencyContactName">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.emergencyContactName"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.emergencyContactName')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emergencyContactRelationship">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.emergencyContactRelationship"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.emergencyContactRelationship')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emergencyContactNo">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.emergencyContactNo"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.emergencyContactNo')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="countryCodeOne">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.countryCodeOne"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.countryCodeOne')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="countryCodeTwo">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.countryCodeTwo"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.countryCodeTwo')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nationalityOne">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.nationalityOne"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.nationalityOne')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="countryOfBirth">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.countryOfBirth"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.countryOfBirth')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cityOfResidence">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.cityOfResidence"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.cityOfResidence')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stateOfResidence">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.stateOfResidence"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.stateOfResidence')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="districtOfResidence">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.districtOfResidence"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.districtOfResidence')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="departureDate">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.departureDate"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.departureDate')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="departurePlace">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.departurePlace"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.departurePlace')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="arrivalDate">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.arrivalDate"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.arrivalDate')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="arrivalPlace">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.arrivalPlace"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.arrivalPlace')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.status">__jhiTransformTranslate__('templeProjectApp.delegate.status')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.lastModified"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.lastModified')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.lastModifiedBy"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.lastModifiedBy')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isTaxReceipt">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.isTaxReceipt"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.isTaxReceipt')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="profilePhotoContentType">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.profilePhotoContentType"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.profilePhotoContentType')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="passportImageContentType">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.passportImageContentType"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.passportImageContentType')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="conferenceName">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.conferenceName"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.conferenceName')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField1"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField1')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField2"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField2')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField3"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField3')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField4"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField4')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField5"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField5')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField6"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField6')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField7">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField7"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField7')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField8">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField8"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField8')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField9">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField9"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField9')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField10">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.delegate.freeField10"
+                >__jhiTransformTranslate__('templeProjectApp.delegate.freeField10')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let delegate of delegates; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/delegate', delegate.id, 'view']">{{ delegate.id }}</a>
+          </td>
+          <td>{{ delegate.title }}</td>
+          <td>{{ delegate.fullName }}</td>
+          <td jhiTranslate="{{ 'templeProjectApp.Gender.' + delegate.gender }}">{{ delegate.gender }}</td>
+          <td>{{ delegate.nationality }}</td>
+          <td>{{ delegate.countryOfResidence }}</td>
+          <td>{{ delegate.dateOfBirth | formatMediumDate }}</td>
+          <td>{{ delegate.citizenship }}</td>
+          <td>{{ delegate.mobileNo }}</td>
+          <td>{{ delegate.emailId }}</td>
+          <td>{{ delegate.emergencyContactName }}</td>
+          <td>{{ delegate.emergencyContactRelationship }}</td>
+          <td>{{ delegate.emergencyContactNo }}</td>
+          <td>{{ delegate.countryCodeOne }}</td>
+          <td>{{ delegate.countryCodeTwo }}</td>
+          <td>{{ delegate.nationalityOne }}</td>
+          <td>{{ delegate.countryOfBirth }}</td>
+          <td>{{ delegate.cityOfResidence }}</td>
+          <td>{{ delegate.stateOfResidence }}</td>
+          <td>{{ delegate.districtOfResidence }}</td>
+          <td>{{ delegate.departureDate | formatMediumDatetime }}</td>
+          <td>{{ delegate.departurePlace }}</td>
+          <td>{{ delegate.arrivalDate | formatMediumDatetime }}</td>
+          <td>{{ delegate.arrivalPlace }}</td>
+          <td>{{ delegate.status }}</td>
+          <td>{{ delegate.lastModified | formatMediumDatetime }}</td>
+          <td>{{ delegate.lastModifiedBy }}</td>
+          <td>{{ delegate.isTaxReceipt }}</td>
+          <td>{{ delegate.profilePhotoContentType }}</td>
+          <td>{{ delegate.passportImageContentType }}</td>
+          <td>{{ delegate.conferenceName }}</td>
+          <td>{{ delegate.freeField1 }}</td>
+          <td>{{ delegate.freeField2 }}</td>
+          <td>{{ delegate.freeField3 }}</td>
+          <td>{{ delegate.freeField4 }}</td>
+          <td>{{ delegate.freeField5 }}</td>
+          <td>{{ delegate.freeField6 }}</td>
+          <td>{{ delegate.freeField7 | formatMediumDatetime }}</td>
+          <td>{{ delegate.freeField8 | formatMediumDatetime }}</td>
+          <td>{{ delegate.freeField9 }}</td>
+          <td>{{ delegate.freeField10 }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/delegate', delegate.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">__jhiTransformTranslate__('entity.action.view')</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/delegate', delegate.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">__jhiTransformTranslate__('entity.action.edit')</span>
+              </button>
+
+              <button type="submit" (click)="delete(delegate)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete"
+                  >__jhiTransformTranslate__('entity.action.delete')</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="delegates && delegates.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>
