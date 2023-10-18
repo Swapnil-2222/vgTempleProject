@@ -1,0 +1,42 @@
+{
+  "templeProjectApp": {
+    "shop": {
+      "home": {
+        "title": "Shops",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Shop",
+        "createOrEditLabel": "Create or edit a Shop",
+        "notFound": "No Shops found"
+      },
+      "created": "A new Shop is created with identifier {{ param }}",
+      "updated": "A Shop is updated with identifier {{ param }}",
+      "deleted": "A Shop is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shop {{ id }}?"
+      },
+      "detail": {
+        "title": "Shop"
+      },
+      "id": "ID",
+      "date": "Date",
+      "name": "Name",
+      "description": "Description",
+      "product": "Product",
+      "productSize": "Product Size",
+      "price": "Price",
+      "emailId": "Email Id",
+      "contactPerson": "Contact Person",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "freeField7": "Free Field 7",
+      "freeField8": "Free Field 8",
+      "freeField9": "Free Field 9",
+      "freeField10": "Free Field 10"
+    }
+  }
+}

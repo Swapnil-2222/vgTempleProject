@@ -1,0 +1,122 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="shop">
+      <h2 data-cy="shopDetailsHeading">
+        <span jhiTranslate="templeProjectApp.shop.detail.title">__jhiTransformTranslate__('templeProjectApp.shop.detail.title')</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span></dt>
+        <dd>
+          <span>{{ shop.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.date">__jhiTransformTranslate__('templeProjectApp.shop.date')</span></dt>
+        <dd>
+          <span>{{ shop.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.name">__jhiTransformTranslate__('templeProjectApp.shop.name')</span></dt>
+        <dd>
+          <span>{{ shop.name }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.shop.description">__jhiTransformTranslate__('templeProjectApp.shop.description')</span>
+        </dt>
+        <dd>
+          <span>{{ shop.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.product">__jhiTransformTranslate__('templeProjectApp.shop.product')</span></dt>
+        <dd>
+          <span>{{ shop.product }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.shop.productSize">__jhiTransformTranslate__('templeProjectApp.shop.productSize')</span>
+        </dt>
+        <dd>
+          <span>{{ shop.productSize }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.price">__jhiTransformTranslate__('templeProjectApp.shop.price')</span></dt>
+        <dd>
+          <span>{{ shop.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.emailId">__jhiTransformTranslate__('templeProjectApp.shop.emailId')</span></dt>
+        <dd>
+          <span>{{ shop.emailId }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.shop.contactPerson">__jhiTransformTranslate__('templeProjectApp.shop.contactPerson')</span>
+        </dt>
+        <dd>
+          <span>{{ shop.contactPerson }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.status">__jhiTransformTranslate__('templeProjectApp.shop.status')</span></dt>
+        <dd>
+          <span>{{ shop.status }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.shop.lastModified">__jhiTransformTranslate__('templeProjectApp.shop.lastModified')</span>
+        </dt>
+        <dd>
+          <span>{{ shop.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.shop.lastModifiedBy">__jhiTransformTranslate__('templeProjectApp.shop.lastModifiedBy')</span>
+        </dt>
+        <dd>
+          <span>{{ shop.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.freeField1">__jhiTransformTranslate__('templeProjectApp.shop.freeField1')</span></dt>
+        <dd>
+          <span>{{ shop.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.freeField2">__jhiTransformTranslate__('templeProjectApp.shop.freeField2')</span></dt>
+        <dd>
+          <span>{{ shop.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.freeField5">__jhiTransformTranslate__('templeProjectApp.shop.freeField5')</span></dt>
+        <dd>
+          <span>{{ shop.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.freeField6">__jhiTransformTranslate__('templeProjectApp.shop.freeField6')</span></dt>
+        <dd>
+          <span>{{ shop.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.freeField7">__jhiTransformTranslate__('templeProjectApp.shop.freeField7')</span></dt>
+        <dd>
+          <span>{{ shop.freeField7 | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.freeField8">__jhiTransformTranslate__('templeProjectApp.shop.freeField8')</span></dt>
+        <dd>
+          <span>{{ shop.freeField8 | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.shop.freeField9">__jhiTransformTranslate__('templeProjectApp.shop.freeField9')</span></dt>
+        <dd>
+          <span>{{ shop.freeField9 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.shop.freeField10">__jhiTransformTranslate__('templeProjectApp.shop.freeField10')</span>
+        </dt>
+        <dd>
+          <span>{{ shop.freeField10 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"
+          >__jhiTransformTranslate__('entity.action.back')</span
+        >
+      </button>
+
+      <button type="button" [routerLink]="['/shop', shop.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"
+          >__jhiTransformTranslate__('entity.action.edit')</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

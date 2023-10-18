@@ -1,0 +1,175 @@
+{
+  "applications": "*",
+  "changelogDate": "20231018185606",
+  "dto": "mapstruct",
+  "entityTableName": "delegate",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fullName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE (Male),FEMALE (Female),OTHER (Other)"
+    },
+    {
+      "fieldName": "nationality",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "countryOfResidence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOfBirth",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "citizenship",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "emailId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emergencyContactName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emergencyContactRelationship",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emergencyContactNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "countryCodeOne",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "countryCodeTwo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nationalityOne",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "countryOfBirth",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cityOfResidence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stateOfResidence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "districtOfResidence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "departureDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "departurePlace",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "arrivalDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "arrivalPlace",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isTaxReceipt",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "profilePhotoContentType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "passportImageContentType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "conferenceName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "freeField7",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "freeField8",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "freeField9",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "freeField10",
+      "fieldType": "Boolean"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Delegate",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

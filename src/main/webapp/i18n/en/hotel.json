@@ -1,0 +1,41 @@
+{
+  "templeProjectApp": {
+    "hotel": {
+      "home": {
+        "title": "Hotels",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Hotel",
+        "createOrEditLabel": "Create or edit a Hotel",
+        "notFound": "No Hotels found"
+      },
+      "created": "A new Hotel is created with identifier {{ param }}",
+      "updated": "A Hotel is updated with identifier {{ param }}",
+      "deleted": "A Hotel is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Hotel {{ id }}?"
+      },
+      "detail": {
+        "title": "Hotel"
+      },
+      "id": "ID",
+      "date": "Date",
+      "name": "Name",
+      "description": "Description",
+      "location": "Location",
+      "rent": "Rent",
+      "emailId": "Email Id",
+      "contactPerson": "Contact Person",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "freeField7": "Free Field 7",
+      "freeField8": "Free Field 8",
+      "freeField9": "Free Field 9",
+      "freeField10": "Free Field 10"
+    }
+  }
+}

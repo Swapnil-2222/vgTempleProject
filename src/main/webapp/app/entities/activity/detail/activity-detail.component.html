@@ -1,0 +1,222 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="activity">
+      <h2 data-cy="activityDetailsHeading">
+        <span jhiTranslate="templeProjectApp.activity.detail.title"
+          >__jhiTransformTranslate__('templeProjectApp.activity.detail.title')</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span></dt>
+        <dd>
+          <span>{{ activity.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.activity.date">__jhiTransformTranslate__('templeProjectApp.activity.date')</span></dt>
+        <dd>
+          <span>{{ activity.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.organizationName"
+            >__jhiTransformTranslate__('templeProjectApp.activity.organizationName')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.organizationName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.location">__jhiTransformTranslate__('templeProjectApp.activity.location')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.location }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.activityName"
+            >__jhiTransformTranslate__('templeProjectApp.activity.activityName')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.activityName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.description"
+            >__jhiTransformTranslate__('templeProjectApp.activity.description')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.description }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.noOfParticipants"
+            >__jhiTransformTranslate__('templeProjectApp.activity.noOfParticipants')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.noOfParticipants }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.activity.time">__jhiTransformTranslate__('templeProjectApp.activity.time')</span></dt>
+        <dd>
+          <span>{{ activity.time }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.mobileNo">__jhiTransformTranslate__('templeProjectApp.activity.mobileNo')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.mobileNo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.emailId">__jhiTransformTranslate__('templeProjectApp.activity.emailId')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.emailId }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.contactPerson"
+            >__jhiTransformTranslate__('templeProjectApp.activity.contactPerson')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.contactPerson }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.comments">__jhiTransformTranslate__('templeProjectApp.activity.comments')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.comments }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.profilePhotoType"
+            >__jhiTransformTranslate__('templeProjectApp.activity.profilePhotoType')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.profilePhotoType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.signatureImageType"
+            >__jhiTransformTranslate__('templeProjectApp.activity.signatureImageType')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.signatureImageType }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.activity.status">__jhiTransformTranslate__('templeProjectApp.activity.status')</span></dt>
+        <dd>
+          <span>{{ activity.status }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.lastModified"
+            >__jhiTransformTranslate__('templeProjectApp.activity.lastModified')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.lastModifiedBy"
+            >__jhiTransformTranslate__('templeProjectApp.activity.lastModifiedBy')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField1">__jhiTransformTranslate__('templeProjectApp.activity.freeField1')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField2">__jhiTransformTranslate__('templeProjectApp.activity.freeField2')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField3">__jhiTransformTranslate__('templeProjectApp.activity.freeField3')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField4">__jhiTransformTranslate__('templeProjectApp.activity.freeField4')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.freeField4 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField5">__jhiTransformTranslate__('templeProjectApp.activity.freeField5')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.freeField5 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField6">__jhiTransformTranslate__('templeProjectApp.activity.freeField6')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.freeField6 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField7">__jhiTransformTranslate__('templeProjectApp.activity.freeField7')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.freeField7 | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField8">__jhiTransformTranslate__('templeProjectApp.activity.freeField8')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.freeField8 | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField9">__jhiTransformTranslate__('templeProjectApp.activity.freeField9')</span>
+        </dt>
+        <dd>
+          <span>{{ activity.freeField9 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField10"
+            >__jhiTransformTranslate__('templeProjectApp.activity.freeField10')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.freeField10 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField11"
+            >__jhiTransformTranslate__('templeProjectApp.activity.freeField11')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.freeField11 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.activity.freeField12"
+            >__jhiTransformTranslate__('templeProjectApp.activity.freeField12')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ activity.freeField12 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"
+          >__jhiTransformTranslate__('entity.action.back')</span
+        >
+      </button>
+
+      <button type="button" [routerLink]="['/activity', activity.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"
+          >__jhiTransformTranslate__('entity.action.edit')</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

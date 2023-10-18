@@ -1,0 +1,536 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-delegate-heading" data-cy="DelegateCreateUpdateHeading" jhiTranslate="templeProjectApp.delegate.home.createOrEditLabel">
+        __jhiTransformTranslate__('templeProjectApp.delegate.home.createOrEditLabel')
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.title" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.fullName" for="field_fullName">Full Name</label>
+          <input type="text" class="form-control" name="fullName" id="field_fullName" data-cy="fullName" formControlName="fullName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.gender" for="field_gender">Gender</label>
+          <select class="form-control" name="gender" formControlName="gender" id="field_gender" data-cy="gender">
+            <option [ngValue]="null">{{ 'templeProjectApp.Gender.null' | translate }}</option>
+            <option *ngFor="let gender of genderValues" [value]="gender">{{ 'templeProjectApp.Gender.' + gender | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.nationality" for="field_nationality">Nationality</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nationality"
+            id="field_nationality"
+            data-cy="nationality"
+            formControlName="nationality"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.countryOfResidence" for="field_countryOfResidence"
+            >Country Of Residence</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="countryOfResidence"
+            id="field_countryOfResidence"
+            data-cy="countryOfResidence"
+            formControlName="countryOfResidence"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.dateOfBirth" for="field_dateOfBirth">Date Of Birth</label>
+          <div class="input-group">
+            <input
+              id="field_dateOfBirth"
+              data-cy="dateOfBirth"
+              type="text"
+              class="form-control"
+              name="dateOfBirth"
+              ngbDatepicker
+              #dateOfBirthDp="ngbDatepicker"
+              formControlName="dateOfBirth"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateOfBirthDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.citizenship" for="field_citizenship">Citizenship</label>
+          <input
+            type="text"
+            class="form-control"
+            name="citizenship"
+            id="field_citizenship"
+            data-cy="citizenship"
+            formControlName="citizenship"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.mobileNo" for="field_mobileNo">Mobile No</label>
+          <input type="number" class="form-control" name="mobileNo" id="field_mobileNo" data-cy="mobileNo" formControlName="mobileNo" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.emailId" for="field_emailId">Email Id</label>
+          <input type="text" class="form-control" name="emailId" id="field_emailId" data-cy="emailId" formControlName="emailId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.emergencyContactName" for="field_emergencyContactName"
+            >Emergency Contact Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="emergencyContactName"
+            id="field_emergencyContactName"
+            data-cy="emergencyContactName"
+            formControlName="emergencyContactName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="templeProjectApp.delegate.emergencyContactRelationship"
+            for="field_emergencyContactRelationship"
+            >Emergency Contact Relationship</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="emergencyContactRelationship"
+            id="field_emergencyContactRelationship"
+            data-cy="emergencyContactRelationship"
+            formControlName="emergencyContactRelationship"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.emergencyContactNo" for="field_emergencyContactNo"
+            >Emergency Contact No</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="emergencyContactNo"
+            id="field_emergencyContactNo"
+            data-cy="emergencyContactNo"
+            formControlName="emergencyContactNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.countryCodeOne" for="field_countryCodeOne"
+            >Country Code One</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="countryCodeOne"
+            id="field_countryCodeOne"
+            data-cy="countryCodeOne"
+            formControlName="countryCodeOne"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.countryCodeTwo" for="field_countryCodeTwo"
+            >Country Code Two</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="countryCodeTwo"
+            id="field_countryCodeTwo"
+            data-cy="countryCodeTwo"
+            formControlName="countryCodeTwo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.nationalityOne" for="field_nationalityOne"
+            >Nationality One</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nationalityOne"
+            id="field_nationalityOne"
+            data-cy="nationalityOne"
+            formControlName="nationalityOne"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.countryOfBirth" for="field_countryOfBirth"
+            >Country Of Birth</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="countryOfBirth"
+            id="field_countryOfBirth"
+            data-cy="countryOfBirth"
+            formControlName="countryOfBirth"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.cityOfResidence" for="field_cityOfResidence"
+            >City Of Residence</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cityOfResidence"
+            id="field_cityOfResidence"
+            data-cy="cityOfResidence"
+            formControlName="cityOfResidence"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.stateOfResidence" for="field_stateOfResidence"
+            >State Of Residence</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stateOfResidence"
+            id="field_stateOfResidence"
+            data-cy="stateOfResidence"
+            formControlName="stateOfResidence"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.districtOfResidence" for="field_districtOfResidence"
+            >District Of Residence</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="districtOfResidence"
+            id="field_districtOfResidence"
+            data-cy="districtOfResidence"
+            formControlName="districtOfResidence"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.departureDate" for="field_departureDate">Departure Date</label>
+          <div class="d-flex">
+            <input
+              id="field_departureDate"
+              data-cy="departureDate"
+              type="datetime-local"
+              class="form-control"
+              name="departureDate"
+              formControlName="departureDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.departurePlace" for="field_departurePlace"
+            >Departure Place</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="departurePlace"
+            id="field_departurePlace"
+            data-cy="departurePlace"
+            formControlName="departurePlace"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.arrivalDate" for="field_arrivalDate">Arrival Date</label>
+          <div class="d-flex">
+            <input
+              id="field_arrivalDate"
+              data-cy="arrivalDate"
+              type="datetime-local"
+              class="form-control"
+              name="arrivalDate"
+              formControlName="arrivalDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.arrivalPlace" for="field_arrivalPlace">Arrival Place</label>
+          <input
+            type="text"
+            class="form-control"
+            name="arrivalPlace"
+            id="field_arrivalPlace"
+            data-cy="arrivalPlace"
+            formControlName="arrivalPlace"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.lastModified" for="field_lastModified">Last Modified</label>
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.isTaxReceipt" for="field_isTaxReceipt">Is Tax Receipt</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isTaxReceipt"
+            id="field_isTaxReceipt"
+            data-cy="isTaxReceipt"
+            formControlName="isTaxReceipt"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.profilePhotoContentType" for="field_profilePhotoContentType"
+            >Profile Photo Content Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="profilePhotoContentType"
+            id="field_profilePhotoContentType"
+            data-cy="profilePhotoContentType"
+            formControlName="profilePhotoContentType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.passportImageContentType" for="field_passportImageContentType"
+            >Passport Image Content Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="passportImageContentType"
+            id="field_passportImageContentType"
+            data-cy="passportImageContentType"
+            formControlName="passportImageContentType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.conferenceName" for="field_conferenceName"
+            >Conference Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="conferenceName"
+            id="field_conferenceName"
+            data-cy="conferenceName"
+            formControlName="conferenceName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField1" for="field_freeField1">Free Field 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField2" for="field_freeField2">Free Field 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField3" for="field_freeField3">Free Field 3</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField4" for="field_freeField4">Free Field 4</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField5" for="field_freeField5">Free Field 5</label>
+          <input
+            type="number"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField6" for="field_freeField6">Free Field 6</label>
+          <input
+            type="number"
+            class="form-control"
+            name="freeField6"
+            id="field_freeField6"
+            data-cy="freeField6"
+            formControlName="freeField6"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField7" for="field_freeField7">Free Field 7</label>
+          <div class="d-flex">
+            <input
+              id="field_freeField7"
+              data-cy="freeField7"
+              type="datetime-local"
+              class="form-control"
+              name="freeField7"
+              formControlName="freeField7"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField8" for="field_freeField8">Free Field 8</label>
+          <div class="d-flex">
+            <input
+              id="field_freeField8"
+              data-cy="freeField8"
+              type="datetime-local"
+              class="form-control"
+              name="freeField8"
+              formControlName="freeField8"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField9" for="field_freeField9">Free Field 9</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="freeField9"
+            id="field_freeField9"
+            data-cy="freeField9"
+            formControlName="freeField9"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="templeProjectApp.delegate.freeField10" for="field_freeField10">Free Field 10</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="freeField10"
+            id="field_freeField10"
+            data-cy="freeField10"
+            formControlName="freeField10"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel"
+            >__jhiTransformTranslate__('entity.action.cancel')</span
+          >
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save"
+            >__jhiTransformTranslate__('entity.action.save')</span
+          >
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

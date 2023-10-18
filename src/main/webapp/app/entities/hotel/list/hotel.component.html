@@ -1,0 +1,229 @@
+<div>
+  <h2 id="page-heading" data-cy="HotelHeading">
+    <span jhiTranslate="templeProjectApp.hotel.home.title">__jhiTransformTranslate__('templeProjectApp.hotel.home.title')</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="templeProjectApp.hotel.home.refreshListLabel"
+          >__jhiTransformTranslate__('templeProjectApp.hotel.home.refreshListLabel')</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-hotel"
+        [routerLink]="['/hotel/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="templeProjectApp.hotel.home.createLabel"
+          >__jhiTransformTranslate__('templeProjectApp.hotel.home.createLabel')</span
+        >
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="hotels?.length === 0">
+    <span jhiTranslate="templeProjectApp.hotel.home.notFound">__jhiTransformTranslate__('templeProjectApp.hotel.home.notFound')</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="hotels && hotels.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="date">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.date">__jhiTransformTranslate__('templeProjectApp.hotel.date')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.name">__jhiTransformTranslate__('templeProjectApp.hotel.name')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.description">__jhiTransformTranslate__('templeProjectApp.hotel.description')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="location">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.location">__jhiTransformTranslate__('templeProjectApp.hotel.location')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="rent">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.rent">__jhiTransformTranslate__('templeProjectApp.hotel.rent')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emailId">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.emailId">__jhiTransformTranslate__('templeProjectApp.hotel.emailId')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="contactPerson">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.contactPerson"
+                >__jhiTransformTranslate__('templeProjectApp.hotel.contactPerson')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.status">__jhiTransformTranslate__('templeProjectApp.hotel.status')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.lastModified"
+                >__jhiTransformTranslate__('templeProjectApp.hotel.lastModified')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.lastModifiedBy"
+                >__jhiTransformTranslate__('templeProjectApp.hotel.lastModifiedBy')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.freeField1">__jhiTransformTranslate__('templeProjectApp.hotel.freeField1')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.freeField2">__jhiTransformTranslate__('templeProjectApp.hotel.freeField2')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.freeField5">__jhiTransformTranslate__('templeProjectApp.hotel.freeField5')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.freeField6">__jhiTransformTranslate__('templeProjectApp.hotel.freeField6')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField7">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.freeField7">__jhiTransformTranslate__('templeProjectApp.hotel.freeField7')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField8">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.freeField8">__jhiTransformTranslate__('templeProjectApp.hotel.freeField8')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField9">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.freeField9">__jhiTransformTranslate__('templeProjectApp.hotel.freeField9')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField10">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.hotel.freeField10">__jhiTransformTranslate__('templeProjectApp.hotel.freeField10')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hotel of hotels; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/hotel', hotel.id, 'view']">{{ hotel.id }}</a>
+          </td>
+          <td>{{ hotel.date | formatMediumDatetime }}</td>
+          <td>{{ hotel.name }}</td>
+          <td>{{ hotel.description }}</td>
+          <td>{{ hotel.location }}</td>
+          <td>{{ hotel.rent }}</td>
+          <td>{{ hotel.emailId }}</td>
+          <td>{{ hotel.contactPerson }}</td>
+          <td>{{ hotel.status }}</td>
+          <td>{{ hotel.lastModified | formatMediumDatetime }}</td>
+          <td>{{ hotel.lastModifiedBy }}</td>
+          <td>{{ hotel.freeField1 }}</td>
+          <td>{{ hotel.freeField2 }}</td>
+          <td>{{ hotel.freeField5 }}</td>
+          <td>{{ hotel.freeField6 }}</td>
+          <td>{{ hotel.freeField7 | formatMediumDatetime }}</td>
+          <td>{{ hotel.freeField8 | formatMediumDatetime }}</td>
+          <td>{{ hotel.freeField9 }}</td>
+          <td>{{ hotel.freeField10 }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/hotel', hotel.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">__jhiTransformTranslate__('entity.action.view')</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/hotel', hotel.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">__jhiTransformTranslate__('entity.action.edit')</span>
+              </button>
+
+              <button type="submit" (click)="delete(hotel)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete"
+                  >__jhiTransformTranslate__('entity.action.delete')</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="hotels && hotels.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

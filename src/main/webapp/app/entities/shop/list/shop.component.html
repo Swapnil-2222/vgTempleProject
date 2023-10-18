@@ -1,0 +1,234 @@
+<div>
+  <h2 id="page-heading" data-cy="ShopHeading">
+    <span jhiTranslate="templeProjectApp.shop.home.title">__jhiTransformTranslate__('templeProjectApp.shop.home.title')</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="templeProjectApp.shop.home.refreshListLabel"
+          >__jhiTransformTranslate__('templeProjectApp.shop.home.refreshListLabel')</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-shop"
+        [routerLink]="['/shop/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="templeProjectApp.shop.home.createLabel"
+          >__jhiTransformTranslate__('templeProjectApp.shop.home.createLabel')</span
+        >
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="shops?.length === 0">
+    <span jhiTranslate="templeProjectApp.shop.home.notFound">__jhiTransformTranslate__('templeProjectApp.shop.home.notFound')</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="shops && shops.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="date">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.date">__jhiTransformTranslate__('templeProjectApp.shop.date')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.name">__jhiTransformTranslate__('templeProjectApp.shop.name')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.description">__jhiTransformTranslate__('templeProjectApp.shop.description')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="product">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.product">__jhiTransformTranslate__('templeProjectApp.shop.product')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="productSize">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.productSize">__jhiTransformTranslate__('templeProjectApp.shop.productSize')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="price">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.price">__jhiTransformTranslate__('templeProjectApp.shop.price')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emailId">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.emailId">__jhiTransformTranslate__('templeProjectApp.shop.emailId')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="contactPerson">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.contactPerson"
+                >__jhiTransformTranslate__('templeProjectApp.shop.contactPerson')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.status">__jhiTransformTranslate__('templeProjectApp.shop.status')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.lastModified">__jhiTransformTranslate__('templeProjectApp.shop.lastModified')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.lastModifiedBy"
+                >__jhiTransformTranslate__('templeProjectApp.shop.lastModifiedBy')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.freeField1">__jhiTransformTranslate__('templeProjectApp.shop.freeField1')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.freeField2">__jhiTransformTranslate__('templeProjectApp.shop.freeField2')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.freeField5">__jhiTransformTranslate__('templeProjectApp.shop.freeField5')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.freeField6">__jhiTransformTranslate__('templeProjectApp.shop.freeField6')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField7">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.freeField7">__jhiTransformTranslate__('templeProjectApp.shop.freeField7')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField8">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.freeField8">__jhiTransformTranslate__('templeProjectApp.shop.freeField8')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField9">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.freeField9">__jhiTransformTranslate__('templeProjectApp.shop.freeField9')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField10">
+            <div class="d-flex">
+              <span jhiTranslate="templeProjectApp.shop.freeField10">__jhiTransformTranslate__('templeProjectApp.shop.freeField10')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shop of shops; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/shop', shop.id, 'view']">{{ shop.id }}</a>
+          </td>
+          <td>{{ shop.date | formatMediumDatetime }}</td>
+          <td>{{ shop.name }}</td>
+          <td>{{ shop.description }}</td>
+          <td>{{ shop.product }}</td>
+          <td>{{ shop.productSize }}</td>
+          <td>{{ shop.price }}</td>
+          <td>{{ shop.emailId }}</td>
+          <td>{{ shop.contactPerson }}</td>
+          <td>{{ shop.status }}</td>
+          <td>{{ shop.lastModified | formatMediumDatetime }}</td>
+          <td>{{ shop.lastModifiedBy }}</td>
+          <td>{{ shop.freeField1 }}</td>
+          <td>{{ shop.freeField2 }}</td>
+          <td>{{ shop.freeField5 }}</td>
+          <td>{{ shop.freeField6 }}</td>
+          <td>{{ shop.freeField7 | formatMediumDatetime }}</td>
+          <td>{{ shop.freeField8 | formatMediumDatetime }}</td>
+          <td>{{ shop.freeField9 }}</td>
+          <td>{{ shop.freeField10 }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/shop', shop.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">__jhiTransformTranslate__('entity.action.view')</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/shop', shop.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">__jhiTransformTranslate__('entity.action.edit')</span>
+              </button>
+
+              <button type="submit" (click)="delete(shop)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete"
+                  >__jhiTransformTranslate__('entity.action.delete')</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="shops && shops.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

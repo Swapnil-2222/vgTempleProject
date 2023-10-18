@@ -1,0 +1,320 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="delegate">
+      <h2 data-cy="delegateDetailsHeading">
+        <span jhiTranslate="templeProjectApp.delegate.detail.title"
+          >__jhiTransformTranslate__('templeProjectApp.delegate.detail.title')</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span></dt>
+        <dd>
+          <span>{{ delegate.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.delegate.title">__jhiTransformTranslate__('templeProjectApp.delegate.title')</span></dt>
+        <dd>
+          <span>{{ delegate.title }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.fullName">__jhiTransformTranslate__('templeProjectApp.delegate.fullName')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.fullName }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.delegate.gender">__jhiTransformTranslate__('templeProjectApp.delegate.gender')</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'templeProjectApp.Gender.' + delegate.gender }}">{{ delegate.gender }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.nationality"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.nationality')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.nationality }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.countryOfResidence"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.countryOfResidence')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.countryOfResidence }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.dateOfBirth"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.dateOfBirth')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.dateOfBirth | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.citizenship"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.citizenship')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.citizenship }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.mobileNo">__jhiTransformTranslate__('templeProjectApp.delegate.mobileNo')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.mobileNo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.emailId">__jhiTransformTranslate__('templeProjectApp.delegate.emailId')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.emailId }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.emergencyContactName"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.emergencyContactName')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.emergencyContactName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.emergencyContactRelationship"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.emergencyContactRelationship')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.emergencyContactRelationship }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.emergencyContactNo"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.emergencyContactNo')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.emergencyContactNo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.countryCodeOne"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.countryCodeOne')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.countryCodeOne }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.countryCodeTwo"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.countryCodeTwo')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.countryCodeTwo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.nationalityOne"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.nationalityOne')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.nationalityOne }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.countryOfBirth"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.countryOfBirth')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.countryOfBirth }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.cityOfResidence"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.cityOfResidence')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.cityOfResidence }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.stateOfResidence"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.stateOfResidence')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.stateOfResidence }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.districtOfResidence"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.districtOfResidence')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.districtOfResidence }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.departureDate"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.departureDate')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.departureDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.departurePlace"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.departurePlace')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.departurePlace }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.arrivalDate"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.arrivalDate')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.arrivalDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.arrivalPlace"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.arrivalPlace')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.arrivalPlace }}</span>
+        </dd>
+        <dt><span jhiTranslate="templeProjectApp.delegate.status">__jhiTransformTranslate__('templeProjectApp.delegate.status')</span></dt>
+        <dd>
+          <span>{{ delegate.status }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.lastModified"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.lastModified')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.lastModifiedBy"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.lastModifiedBy')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.isTaxReceipt"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.isTaxReceipt')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.isTaxReceipt }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.profilePhotoContentType"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.profilePhotoContentType')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.profilePhotoContentType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.passportImageContentType"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.passportImageContentType')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.passportImageContentType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.conferenceName"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.conferenceName')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.conferenceName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField1">__jhiTransformTranslate__('templeProjectApp.delegate.freeField1')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField2">__jhiTransformTranslate__('templeProjectApp.delegate.freeField2')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField3">__jhiTransformTranslate__('templeProjectApp.delegate.freeField3')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField4">__jhiTransformTranslate__('templeProjectApp.delegate.freeField4')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField4 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField5">__jhiTransformTranslate__('templeProjectApp.delegate.freeField5')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField5 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField6">__jhiTransformTranslate__('templeProjectApp.delegate.freeField6')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField6 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField7">__jhiTransformTranslate__('templeProjectApp.delegate.freeField7')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField7 | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField8">__jhiTransformTranslate__('templeProjectApp.delegate.freeField8')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField8 | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField9">__jhiTransformTranslate__('templeProjectApp.delegate.freeField9')</span>
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField9 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="templeProjectApp.delegate.freeField10"
+            >__jhiTransformTranslate__('templeProjectApp.delegate.freeField10')</span
+          >
+        </dt>
+        <dd>
+          <span>{{ delegate.freeField10 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"
+          >__jhiTransformTranslate__('entity.action.back')</span
+        >
+      </button>
+
+      <button type="button" [routerLink]="['/delegate', delegate.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"
+          >__jhiTransformTranslate__('entity.action.edit')</span
+        >
+      </button>
+    </div>
+  </div>
+</div>
