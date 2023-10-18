@@ -1,0 +1,145 @@
+// Define the enumeration for Gender
+enum Gender {
+    MALE(Male), 
+    FEMALE(Female), 
+    OTHER(Other)
+}
+
+//The Activity entity
+entity Activity {
+  date Instant
+  organizationName String
+  location String
+  activityName String
+  description String
+  noOfParticipants Long
+  time String
+  mobileNo Long
+  emailId String
+  contactPerson String
+  comments String
+  profilePhotoType String
+  signatureImageType String
+  status String
+  lastModified Instant
+  lastModifiedBy String
+  freeField1 String
+  freeField2 String
+  freeField3 String
+  freeField4 String
+  freeField5 Long
+  freeField6 Long
+  freeField7 Instant
+  freeField8 Instant
+  freeField9 Boolean
+  freeField10 Boolean
+  freeField11 Boolean
+  freeField12 Boolean
+}
+
+
+
+
+// Define the Delegate entity
+entity Delegate {
+  title String
+  fullName String
+  gender Gender
+  nationality String
+  countryOfResidence String
+  dateOfBirth LocalDate
+  citizenship String
+  mobileNo Long
+  emailId String
+  emergencyContactName String
+  emergencyContactRelationship String
+  emergencyContactNo Long
+  countryCodeOne String
+  countryCodeTwo String
+  nationality String
+  nationalityOne String
+  countryOfBirth String
+  countryOfResidence String
+  cityOfResidence String
+  stateOfResidence String
+  districtOfResidence String
+  departureDate Instant
+  departurePlace String
+  arrivalDate Instant
+  arrivalPlace String
+  status String
+  lastModified Instant
+  lastModifiedBy String
+  isTaxReceipt Boolean
+  profilePhotoContentType String
+  passportImageContentType String
+  conferenceName String
+  freeField1 String
+  freeField2 String
+  freeField3 String
+  freeField4 String
+  freeField5 Long
+  freeField6 Long
+  freeField7 Instant
+  freeField8 Instant
+  freeField9 Boolean
+  freeField10 Boolean
+}
+
+entity Shop {
+  date Instant
+  name String
+  description String
+  product String
+  productSize String
+  price Double
+  emailId String
+  contactPerson String
+  status String
+  lastModified Instant
+  lastModifiedBy String
+  freeField1 String
+  freeField2 String
+  freeField5 Long
+  freeField6 Long
+  freeField7 Instant
+  freeField8 Instant
+  freeField9 Boolean
+  freeField10 Boolean
+}
+
+entity Hotel {
+  date Instant
+  name String
+  description String
+  location String
+  rent Double
+  emailId String
+  contactPerson String
+  status String
+  lastModified Instant
+  lastModifiedBy String
+  freeField1 String
+  freeField2 String
+  freeField5 Long
+  freeField6 Long
+  freeField7 Instant
+  freeField8 Instant
+  freeField9 Boolean
+  freeField10 Boolean
+}
+
+// Define relationships or constraints if needed
+  // Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+filter *
+// Set an angular suffix
+// angularSuffix * with tvg
